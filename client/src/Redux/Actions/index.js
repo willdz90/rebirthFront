@@ -7,7 +7,7 @@ import {
   NO_FILTER_PETS,
 } from "./actionTypes";
 
-const SERVER = "http://localhost:3001";
+const SERVER = "https://rebirth-as.herokuapp.com/";
 
 export function getUsers() {
   return async function (dispatch) {
