@@ -12,7 +12,7 @@ const SERVER = "https://rebirth-as.herokuapp.com";
 export function getUsers() {
   return async function (dispatch) {
     try {
-      const json = await axios(`${SERVER}user`);
+      const json = await axios(`${SERVER}/user`);
       return dispatch({
         type: "GET_USER",
         payload: json.data,
@@ -27,7 +27,7 @@ export function getUsers() {
 export function getUserId(id) {
   return async function (dispatch) {
     try {
-      const json = await axios(`${SERVER}user/${id}`);
+      const json = await axios(`${SERVER}/user/${id}`);
       return dispatch({
         type: "GET_USER_ID",
         payload: json.data,
@@ -41,14 +41,14 @@ export function getUserId(id) {
 
 export function postUser(payload) {
   return async function (dispatch) {
-    await axios.post(`${SERVER}user`, payload);
+    await axios.post(`${SERVER}/user`, payload);
   };
 }
 
 export function deleteUser(id) {
   return async function dispatch() {
     try {
-      const json = await axios.delete(`${SERVER}user/${id}`);
+      const json = await axios.delete(`${SERVER}/user/${id}`);
       return dispatch({
         type: "DELETE_USER",
         payload: json.data,
@@ -63,7 +63,7 @@ export function deleteUser(id) {
 export function getPets() {
   return async function (dispatch) {
     try {
-      const json = await axios(`${SERVER}pets`);
+      const json = await axios(`${SERVER}/pets`);
       return dispatch({
         type: "GET_PETS",
         payload: json.data,
@@ -82,7 +82,7 @@ export function getPetFilters(type, name) {
     try {
       const json = await axios(
 
-        `${SERVER}pets?type=${type}`
+        `${SERVER}/pets?type=${type}`
       );
       return dispatch({
         type: "GET_PETS",
@@ -98,7 +98,7 @@ export function getPetFilters(type, name) {
 export function getPetNames(name) {
   return async function (dispatch) {
     try {
-      const json = await axios(`${SERVER}pets?name=${name}`);
+      const json = await axios(`${SERVER}/pets?name=${name}`);
       return dispatch({
         type: "GET_NAMES",
         payload: json.data,
@@ -112,14 +112,14 @@ export function getPetNames(name) {
 
 export function postPet(payload) {
   return async function (dispatch) {
-    await axios.post(`${SERVER}pets`, payload);
+    await axios.post(`${SERVER}/pets`, payload);
   };
 }
 
 export function getDetails(id) {
   return async function (dispatch) {
     try {
-      const json = await axios(`${SERVER}pets/${id}`);
+      const json = await axios(`${SERVER}/pets/${id}`);
       return dispatch({
         type: "GET_DETAILS",
         payload: json.data,
@@ -134,7 +134,7 @@ export function getDetails(id) {
 export function deletePet(id) {
   return async function (dispatch) {
     try {
-      const json = await axios.delete(`${SERVER}pets/${id}`);
+      const json = await axios.delete(`${SERVER}/pets/${id}`);
       return dispatch({
         type: "DELETE_PET",
         payload: json.data,
